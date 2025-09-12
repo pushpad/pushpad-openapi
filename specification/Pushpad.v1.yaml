@@ -1,0 +1,50 @@
+openapi: "3.1.0"
+
+info:
+  title: Pushpad API
+  version: "1.0"
+  description: |
+    The Pushpad API allows you to send web push notifications and manage resources
+    within your Pushpad account in a simple way using HTTP requests.
+    All of the functionality that you are familiar with in the Pushpad
+    dashboard is also available through the API.
+  license:
+    name: Apache 2.0
+    url: "https://opensource.org/license/apache-2-0"
+  contact:
+    name: Pushpad Support
+    email: support@pushpad.xyz
+  termsOfService: "https://pushpad.xyz/tos"
+
+servers:
+  - url: "https://pushpad.xyz/api/v1"
+    description: production
+
+tags:
+  - name: Notifications
+    description: |
+      A notification is a web push notification sent with Pushpad.
+      
+      By sending requests to the Notifications endpoint, you can
+      create, read or delete notifications.
+
+  - name: Subscriptions
+    description: |
+      A subscription is a subscription to notifications.
+      
+      By sending requests to the Subscriptions endpoint, you can
+      create, read, update or delete subscriptions.
+
+  - name: Projects
+    description: |
+      A project is a project on Pushpad.
+      
+      By sending requests to the Projects endpoint, you can
+      create, read, update or delete projects.
+
+  - name: Senders
+    description: |
+      A sender is the owner of the subscriptions and signer of the notifications.
+      
+      By sending requests to the Senders endpoint, you can
+      create, read, update or delete senders.
