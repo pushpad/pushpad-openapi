@@ -1,0 +1,41 @@
+type: object
+
+properties:
+  id:
+    type: integer
+    readOnly: true
+    example: 12345
+    description: |
+      A unique identifier for each sender.
+      This is automatically generated upon sender creation.
+
+  name:
+    type: string
+    example: My Sender
+    description: |
+      The human-readable name set for the sender.
+
+  vapid_private_key:
+    type: string
+    example: "-----BEGIN EC PRIVATE KEY----- ..."
+    description: |
+      The VAPID private key used to sign notifications.
+      This is automatically generated upon sender creation.
+      You can optionally provide it if you want to import your existing key.
+
+  vapid_public_key:
+    type: string
+    example: "-----BEGIN PUBLIC KEY----- ..."
+    description: |
+      The VAPID public key associated to the subscriptions.
+      This is automatically generated upon sender creation.
+      You can optionally provide it if you want to import your existing key.
+  
+  created_at:
+    type: string
+    format: date-time
+    readOnly: true
+    example: "2025-09-13T10:30:00.123Z"
+    description: |
+      A time value given in ISO 8601 format.
+      It represents when the sender was created.
