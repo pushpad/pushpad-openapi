@@ -18,9 +18,9 @@ requestBody:
     application/json:
       schema:
         allOf:
-        - $ref: 'models/sender.yml'
-      required:
-        - name
+          - $ref: 'models/sender.yml'
+        required:
+          - name
 
 responses:
   '201':
