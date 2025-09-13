@@ -19,6 +19,20 @@ info:
 servers:
   - url: "https://pushpad.xyz/api/v1"
     description: production
+    
+components:
+  securitySchemes:
+    TokenAuth:
+      type: http
+      scheme: Token
+      description: |
+        Authentication with access token (API key).
+
+        Example header:
+        `Authorization: Token token="YOUR_ACCESS_TOKEN"`
+
+security:
+  - TokenAuth: []
 
 tags:
   - name: Notifications
