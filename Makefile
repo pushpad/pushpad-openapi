@@ -9,6 +9,10 @@ setup:
 lint:
 	redocly lint ${SPEC_FILE}
 
+.PHONY: preview
+preview:
+	redocly preview --project-dir=$(dir $(SPEC_FILE))
+
 .PHONY: bundle
 bundle:
 	redocly bundle ${SPEC_FILE} -o ${BUNDLE_FILE}
