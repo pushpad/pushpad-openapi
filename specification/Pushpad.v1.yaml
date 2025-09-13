@@ -68,6 +68,8 @@ paths:
     post:
       $ref: "resources/senders/senders_create.yml"
   /senders/{sender_id}:
+    get:
+      $ref: "resources/senders/senders_get.yml"
     patch:
       $ref: "resources/senders/senders_update.yml"
     delete:
