@@ -62,3 +62,8 @@ tags:
       
       By sending requests to the Senders endpoint, you can
       create, read, update or delete senders.
+
+paths:
+  /senders:
+    post:
+      $ref: "resources/senders/senders_create.yml"
