@@ -1,4 +1,4 @@
-operationId: senders_destroy
+operationId: senders_delete
 
 summary: Delete a Sender
 

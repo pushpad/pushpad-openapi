@@ -73,4 +73,4 @@ paths:
     patch:
       $ref: "resources/senders/senders_update.yml"
     delete:
-      $ref: "resources/senders/senders_destroy.yml"
+      $ref: "resources/senders/senders_delete.yml"
