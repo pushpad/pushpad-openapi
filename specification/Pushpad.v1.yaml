@@ -65,6 +65,8 @@ tags:
 
 paths:
   /senders:
+    get:
+      $ref: "resources/senders/senders_list.yml"
     post:
       $ref: "resources/senders/senders_create.yml"
   /senders/{sender_id}:
