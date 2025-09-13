@@ -1,0 +1,8 @@
+sender_id:
+  in: path
+  name: sender_id
+  description: The ID of a sender.
+  required: true
+  schema:
+    type: integer
+  example: 12345
