@@ -1,0 +1,4 @@
+description: |
+  The most common error when you send a request, like create or update,
+  but the content of the request has some invalid values.
+  For example, a field is too long, doesn't respect the format, etc.

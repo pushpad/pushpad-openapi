@@ -1,0 +1,4 @@
+description: |
+  The resource doesn't exist or no longer exists.
+  For example, you have requested a project that doesn't exist 
+  or a notification that is older than 35 days and has been deleted.

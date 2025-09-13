@@ -1,0 +1,4 @@
+description: |
+  Although we try to apply soft limits whenever possible,
+  extremely high or unjustified volumes of requests may be rejected with this code.
+  You can always contact our support for assistance.

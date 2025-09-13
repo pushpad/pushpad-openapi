@@ -1,0 +1,4 @@
+description: |
+  An error code for billing issues.
+  For example, a notification is not sent because an invoice
+  has not been paid for a long time.
