@@ -1,0 +1,48 @@
+operationId: projects_create
+
+summary: Create a New Project
+
+description: |
+  To create a new project, send a POST request to `/projects` setting the
+  required attributes.
+
+  A project will be created using the provided information.
+  
+  The response body will contain a JSON object with the attributes of your new project.
+
+tags:
+  - Projects
+
+requestBody:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: 'models/project.yml'
+        required:
+          - sender_id
+          - name
+          - website
+
+responses:
+  '201':
+    description: Project was successfully created.
+    content:
+      application/json:
+        schema:
+          $ref: 'models/project.yml'
+
+  '401':
+    $ref: '../../shared/responses/unauthorized.yml'
+    
+  '403':
+    $ref: '../../shared/responses/forbidden.yml'
+    
+  '422':
+    $ref: '../../shared/responses/unprocessable_content.yml'
+    
+  '500':
+    $ref: '../../shared/responses/server_error.yml'
+
+  default:
+    $ref: '../../shared/responses/unexpected_error.yml'

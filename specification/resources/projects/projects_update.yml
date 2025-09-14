@@ -1,0 +1,53 @@
+operationId: projects_update
+
+summary: Update a Project
+
+description: |
+  To update a project, send a PATCH request to `/projects/PROJECT_ID`.
+
+  The project will be updated using the provided information.
+  
+  The response body will contain a JSON object with the attributes of your project.
+
+tags:
+  - Projects
+
+parameters:
+  - $ref: 'parameters.yml#/project_id'
+
+requestBody:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: 'models/project.yml'
+          - type: object
+            properties:
+              sender_id:
+                readOnly: true
+
+responses:
+  '200':
+    description: Project was successfully updated.
+    content:
+      application/json:
+        schema:
+          $ref: 'models/project.yml'
+
+  '401':
+    $ref: '../../shared/responses/unauthorized.yml'
+    
+  '403':
+    $ref: '../../shared/responses/forbidden.yml'
+    
+  '404':
+    $ref: '../../shared/responses/not_found.yml'
+    
+  '422':
+    $ref: '../../shared/responses/unprocessable_content.yml'
+    
+  '500':
+    $ref: '../../shared/responses/server_error.yml'
+
+  default:
+    $ref: '../../shared/responses/unexpected_error.yml'

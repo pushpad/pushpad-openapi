@@ -1,0 +1,36 @@
+operationId: projects_delete
+
+summary: Delete a Project
+
+description: |
+  To delete a project, send a DELETE request to `/projects/PROJECT_ID`.
+  
+  The project will be deleted asynchronously.
+  The actual processing of the request is performed later.
+
+  A successful request will receive a 202 status code with no body in response.
+
+tags:
+  - Projects
+
+parameters:
+  - $ref: 'parameters.yml#/project_id'
+
+responses:
+  '202':
+    description: Project will be deleted.
+
+  '401':
+    $ref: '../../shared/responses/unauthorized.yml'
+    
+  '403':
+    $ref: '../../shared/responses/forbidden.yml'
+    
+  '404':
+    $ref: '../../shared/responses/not_found.yml'
+    
+  '500':
+    $ref: '../../shared/responses/server_error.yml'
+
+  default:
+    $ref: '../../shared/responses/unexpected_error.yml'

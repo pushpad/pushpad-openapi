@@ -1,0 +1,76 @@
+type: object
+
+properties:
+  id:
+    type: integer
+    readOnly: true
+    example: 12345
+    description: |
+      A unique identifier for each project.
+      This is automatically generated upon project creation.
+
+  sender_id:
+    type: integer
+    example: 98765
+    description: |
+      The ID of the sender associated to this project.
+
+  name:
+    type: string
+    example: My Project
+    description: |
+      The human-readable name set for the project.
+
+  website:
+    type: string
+    format: uri
+    example: "https://example.com"
+    description: |
+      The URL of the project.
+      This is also the default URL for notifications.
+
+  icon_url:
+    type: string
+    format: uri
+    example: "https://example.com/icon.png"
+    description: |
+      The default icon for notifications.
+      Suggested size >= 192x192px, squared.
+
+  badge_url:
+    type: string
+    format: uri
+    example: "https://example.com/badge.png"
+    description: |
+      A small icon displayed in the status bar for notifications.
+      Suggested size >= 96x96px, squared.
+
+  notifications_ttl:
+    type: integer
+    minimum: 0
+    maximum: 2419200
+    example: 604800
+    description: |
+      Drop the notifications that cannot be delivered within this amount of time.
+
+  notifications_require_interaction:
+    type: boolean
+    example: false
+    description: |
+      Turn on this option to require user interaction and prevent browser from 
+      automatically closing the notifications after a few seconds.
+
+  notifications_silent:
+    type: boolean
+    example: false
+    description: |
+      Turn on this option to disable the sound and vibration of notifications.
+
+  created_at:
+    type: string
+    format: date-time
+    readOnly: true
+    example: "2025-09-14T10:30:00.123Z"
+    description: |
+      A time value given in ISO 8601 format.
+      It represents when the project was created.

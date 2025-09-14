@@ -64,6 +64,19 @@ tags:
       create, read, update or delete senders.
 
 paths:
+  /projects:
+    get:
+      $ref: "resources/projects/projects_list.yml"
+    post:
+      $ref: "resources/projects/projects_create.yml"
+  /projects/{project_id}:
+    get:
+      $ref: "resources/projects/projects_get.yml"
+    patch:
+      $ref: "resources/projects/projects_update.yml"
+    delete:
+      $ref: "resources/projects/projects_delete.yml"
+
   /senders:
     get:
       $ref: "resources/senders/senders_list.yml"
