@@ -5,6 +5,8 @@ summary: Get a Notification
 description: |
   To get a notification and its stats,
   send a GET request to `/notifications/NOTIFICATION_ID`.
+  
+  Only the notifications created in the last 35 days are available.
 
 tags:
   - Notifications

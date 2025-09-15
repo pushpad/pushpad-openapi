@@ -6,6 +6,8 @@ description: |
   To list the latest notifications for your project,
   send a GET request to `/projects/PROJECT_ID/notifications`.
   
+  Only the notifications created in the last 35 days are available.
+  
   The response body will be an array containing objects each representing a notification.
 
 tags:
