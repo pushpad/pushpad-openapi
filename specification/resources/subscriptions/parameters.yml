@@ -39,7 +39,10 @@ per_page:
 uids:
   in: query
   name: uids[]
-  description: Filter subscriptions by user ID.
+  description: |
+    Filter subscriptions by user ID.
+    
+    Subscriptions that have one of these uids associated are returned.
   style: form
   explode: true
   schema:
@@ -50,7 +53,13 @@ uids:
 tags:
   in: query
   name: tags[]
-  description: Filter subscriptions by tags.
+  description: |
+    Filter subscriptions by tags.
+    
+    Subscriptions that have at least one of these tags associated are returned.
+    
+    Instead of simple tags, you can also use boolean expressions for tags,
+    for example: `(tag1 && tag2) || !tag3`.
   style: form
   explode: true
   schema:
