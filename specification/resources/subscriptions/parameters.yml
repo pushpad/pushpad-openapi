@@ -15,3 +15,45 @@ subscription_id:
   schema:
     type: integer
   example: 12345
+
+page:
+  in: query
+  name: page
+  description: |
+    If you have many subscriptions they get paginated and 
+    you need to retrieve them with multiple requests.
+  schema:
+    type: integer
+    minimum: 1
+    default: 1
+
+per_page:
+  in: query
+  name: per_page
+  description: The number of subscriptions per page.
+  schema:
+    type: integer
+    minimum: 1
+    default: 30
+
+uids:
+  in: query
+  name: uids[]
+  description: Filter subscriptions by user ID.
+  style: form
+  explode: true
+  schema:
+    type: array
+    items: 
+      type: string
+
+tags:
+  in: query
+  name: tags[]
+  description: Filter subscriptions by tags.
+  style: form
+  explode: true
+  schema:
+    type: array
+    items: 
+      type: string

@@ -14,6 +14,12 @@ tags:
 parameters:
   - $ref: 'parameters.yml#/project_id'
 
+  - $ref: 'parameters.yml#/page'
+  - $ref: 'parameters.yml#/per_page'
+
+  - $ref: 'parameters.yml#/uids'
+  - $ref: 'parameters.yml#/tags'
+
 responses:
   '200':
     description: The response is a JSON array of subscription objects.
