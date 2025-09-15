@@ -23,6 +23,14 @@ parameters:
 responses:
   '200':
     description: The response is a JSON array of subscription objects.
+    headers:
+      X-Total-Count:
+        description: |
+          The total number of subscriptions for this project
+          or the number of subscriptions that match the given query
+          if you set uids or tags in the query string.
+        schema:
+          type: integer
     content:
       application/json:
         schema:
