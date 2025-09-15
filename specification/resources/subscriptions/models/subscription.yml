@@ -1,0 +1,75 @@
+type: object
+
+properties:
+  id:
+    type: integer
+    readOnly: true
+    example: 12345
+    description: |
+      A unique identifier for each subscription.
+      This is automatically generated upon subscription creation.
+
+  endpoint:
+    type: string
+    format: uri
+    example: "https://example.com/push/f7Q1Eyf7EyfAb1"
+    description: |
+      The push endpoint of a browser, as described in the W3C Push API.
+      It is a URL where the application can deliver the push notifications 
+      that should be sent to the browser.
+      An endpoint uniquely identifies the subscription.
+
+  p256dh:
+    type: string
+    example: "BCQVDTlYWdl05lal3lG5SKr3VxTrEWpZErbkxWrzknHrIKFwihDoZpc_2sH6Sh08h-CacUYI-H8gW4jH-uMYZQ4="
+    description: |
+      The p256dh property of the push subscription object, as described in the W3C Push API.
+      It is an elliptic curve Diffie-Hellman (ECDH) public key associated with the push subscription.
+  
+  auth:
+    type: string
+    example: "cdKMlhgVeSPzCXZ3V7FtgQ=="
+    description: |
+      The auth property of the push subscription object, as described in the W3C Push API.
+      It is an authentication secret that an application server uses in authentication of its messages.
+
+  uid:
+    type: string
+    example: user1
+    description: |
+      A user identifier associated with the subscription.
+      You can use it to find the push subscription of a user 
+      and then send notifications to that specific user.
+      You can choose any ID that makes sense for your application,
+      like the ID of the user in your database.
+  
+  tags:
+    type: array
+    items:
+      type: string
+    example: ["tag1", "tag2"]
+    description: |
+      Tags associated with the subscription.
+      You can use them to filter the push subscriptions
+      and send notifications to a segment of your audience.
+      You can add all tags that make sense for your application.
+
+  last_click_at:
+    type: string
+    format: date-time
+    readOnly: true
+    example: "2025-09-15T11:00:00.123Z"
+    description: |
+      A time value given in ISO 8601 format.
+      It represents the last time that a notification sent to this subscription
+      was clicked by the user.
+      If there aren't any clicks on notifications yet, null is returned.
+
+  created_at:
+    type: string
+    format: date-time
+    readOnly: true
+    example: "2025-09-15T10:30:00.123Z"
+    description: |
+      A time value given in ISO 8601 format.
+      It represents when the subscription was created.

@@ -1,0 +1,59 @@
+operationId: subscriptions_update
+
+summary: Update a Subscription
+
+description: |
+  To update a subscription,
+  send a PATCH request to `/projects/PROJECT_ID/subscriptions/SUBSCRIPTION_ID`.
+
+  The subscription will be updated using the provided information.
+  
+  The response body will contain a JSON object with the attributes of your subscription.
+
+tags:
+  - Subscriptions
+
+parameters:
+  - $ref: 'parameters.yml#/project_id'
+  - $ref: 'parameters.yml#/subscription_id'
+
+requestBody:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: 'models/subscription.yml'
+          - type: object
+            properties:
+              endpoint:
+                readOnly: true
+              p256dh:
+                readOnly: true
+              auth:
+                readOnly: true
+
+responses:
+  '200':
+    description: Subscription was successfully updated.
+    content:
+      application/json:
+        schema:
+          $ref: 'models/subscription.yml'
+
+  '401':
+    $ref: '../../shared/responses/unauthorized.yml'
+    
+  '403':
+    $ref: '../../shared/responses/forbidden.yml'
+    
+  '404':
+    $ref: '../../shared/responses/not_found.yml'
+    
+  '422':
+    $ref: '../../shared/responses/unprocessable_content.yml'
+    
+  '500':
+    $ref: '../../shared/responses/server_error.yml'
+
+  default:
+    $ref: '../../shared/responses/unexpected_error.yml'

@@ -64,6 +64,19 @@ tags:
       create, read, update or delete senders.
 
 paths:
+  /projects/{project_id}/subscriptions:
+    get:
+      $ref: "resources/subscriptions/subscriptions_list.yml"
+    post:
+      $ref: "resources/subscriptions/subscriptions_create.yml"
+  /projects/{project_id}/subscriptions/{subscription_id}:
+    get:
+      $ref: "resources/subscriptions/subscriptions_get.yml"
+    patch:
+      $ref: "resources/subscriptions/subscriptions_update.yml"
+    delete:
+      $ref: "resources/subscriptions/subscriptions_delete.yml"
+  
   /projects:
     get:
       $ref: "resources/projects/projects_list.yml"

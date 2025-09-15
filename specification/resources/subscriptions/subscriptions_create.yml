@@ -1,0 +1,56 @@
+operationId: subscriptions_create
+
+summary: Create a New Subscription
+
+description: |
+  To create a new subscription,
+  send a POST request to `/projects/PROJECT_ID/subscriptions`
+  setting the required attributes.
+
+  A subscription will be created using the provided information.
+    
+  The response body will contain a JSON object with the attributes of your new subscription.
+  
+  This operation is mainly intended to import subscriptions
+  from another service into Pushpad.
+  
+  This is not the standard way to collect subscriptions:
+  usually you collect them using the JavaScript SDK.
+
+tags:
+  - Subscriptions
+
+parameters:
+  - $ref: 'parameters.yml#/project_id'
+
+requestBody:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: 'models/subscription.yml'
+        required:
+          - endpoint
+
+responses:
+  '201':
+    description: Subscription was successfully created.
+    content:
+      application/json:
+        schema:
+          $ref: 'models/subscription.yml'
+
+  '401':
+    $ref: '../../shared/responses/unauthorized.yml'
+    
+  '403':
+    $ref: '../../shared/responses/forbidden.yml'
+    
+  '422':
+    $ref: '../../shared/responses/unprocessable_content.yml'
+    
+  '500':
+    $ref: '../../shared/responses/server_error.yml'
+
+  default:
+    $ref: '../../shared/responses/unexpected_error.yml'

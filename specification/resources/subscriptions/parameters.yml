@@ -1,0 +1,17 @@
+project_id:
+  in: path
+  name: project_id
+  description: The ID of a project.
+  required: true
+  schema:
+    type: integer
+  example: 123
+
+subscription_id:
+  in: path
+  name: subscription_id
+  description: The ID of a subscription.
+  required: true
+  schema:
+    type: integer
+  example: 12345
