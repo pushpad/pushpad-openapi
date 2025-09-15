@@ -1,0 +1,38 @@
+operationId: notifications_list
+
+summary: List Latest Notifications
+
+description: |
+  To list the latest notifications for your project,
+  send a GET request to `/projects/PROJECT_ID/notifications`.
+  
+  The response body will be an array containing objects each representing a notification.
+
+tags:
+  - Notifications
+
+parameters:
+  - $ref: 'parameters.yml#/project_id'
+  - $ref: 'parameters.yml#/page'
+
+responses:
+  '200':
+    description: The response is a JSON array of notification objects.
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: 'models/notification.yml'
+
+  '401':
+    $ref: '../../shared/responses/unauthorized.yml'
+    
+  '403':
+    $ref: '../../shared/responses/forbidden.yml'
+    
+  '500':
+    $ref: '../../shared/responses/server_error.yml'
+
+  default:
+    $ref: '../../shared/responses/unexpected_error.yml'

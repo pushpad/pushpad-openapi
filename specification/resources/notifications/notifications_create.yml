@@ -1,0 +1,83 @@
+operationId: notifications_create
+
+summary: Send a New Notification
+
+description: |
+  To send a web push notification,
+  send a POST request to `/projects/PROJECT_ID/notifications`.
+
+tags:
+  - Notifications
+
+parameters:
+  - $ref: 'parameters.yml#/project_id'
+
+requestBody:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: 'models/notification.yml'
+        required:
+          - body
+
+responses:
+  '201':
+    description: Notification was accepted for delivery.
+    content:
+      application/json:
+        schema:
+          oneOf:
+            - type: object
+              description: Notification response.
+              properties:
+                id:
+                  type: integer
+                  example: 197123
+                  description: The notification id.
+                scheduled:
+                  type: integer
+                  example: 5
+                  description: |
+                    The number of devices to which the notification will be delivered.
+                    It can differ from the size of uids since some users may have enabled notifications on more than one device.
+                uids:
+                  type: array
+                  items:
+                    type: string
+                  example: ["uid0", "uid1", "uidN"]
+                  description: |
+                    The users that will be actually reached by the notification (i.e. they are subscribed to push notifications).
+            - type: object
+              description: Scheduled notification response.
+              properties:
+                id:
+                  type: integer
+                  example: 197123
+                  description: The notification id.
+                send_at:
+                  type: string
+                  format: date-time
+                  example: "2016-07-06T10:09:00.000Z"
+                  description: The time when the notification will be sent.
+
+  '401':
+    $ref: '../../shared/responses/unauthorized.yml'
+
+  '402':
+    $ref: '../../shared/responses/payment_required.yml'
+
+  '403':
+    $ref: '../../shared/responses/forbidden.yml'
+
+  '422':
+    $ref: '../../shared/responses/unprocessable_content.yml'
+
+  '429':
+    $ref: '../../shared/responses/too_many_requests.yml'
+
+  '500':
+    $ref: '../../shared/responses/server_error.yml'
+
+  default:
+    $ref: '../../shared/responses/unexpected_error.yml'

@@ -1,0 +1,28 @@
+project_id:
+  in: path
+  name: project_id
+  description: The ID of a project.
+  required: true
+  schema:
+    type: integer
+  example: 123
+
+notification_id:
+  in: path
+  name: notification_id
+  description: The ID of a notification.
+  required: true
+  schema:
+    type: integer
+  example: 197123
+
+page:
+  in: query
+  name: page
+  description: |
+    If you have many notifications they get paginated and
+    you need to retrieve them with multiple requests.
+  schema:
+    type: integer
+    minimum: 1
+    default: 1

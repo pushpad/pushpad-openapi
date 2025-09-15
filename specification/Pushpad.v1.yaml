@@ -64,6 +64,18 @@ tags:
       create, read, update or delete senders.
 
 paths:
+  /projects/{project_id}/notifications:
+    get:
+      $ref: "resources/notifications/notifications_list.yml"
+    post:
+      $ref: "resources/notifications/notifications_create.yml"
+  /notifications/{notification_id}:
+    get:
+      $ref: "resources/notifications/notifications_get.yml"
+  /notifications/{notification_id}/cancel:
+    delete:
+      $ref: "resources/notifications/notifications_cancel.yml"
+
   /projects/{project_id}/subscriptions:
     get:
       $ref: "resources/subscriptions/subscriptions_list.yml"
