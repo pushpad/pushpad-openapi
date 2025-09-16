@@ -39,12 +39,31 @@ tags:
     description: |
       A notification is a web push notification sent with Pushpad.
       
+      A notification includes some content (title, body, image, etc.),
+      the target URL that is opened after a click, and many other options.
+      
+      You can create notifications that are sent immediately 
+      or scheduled notifications that are sent in the future.
+      
+      A notification can be sent to all subscribers or to some of them,
+      by using the targeting options (uids and tags).
+      
+      You can also get stats about the sending status and clicks for each notification.
+      Or you can aggregate the stats for many notifications using the custom metrics.
+      
       By sending requests to the Notifications endpoint, you can
       create, read or delete notifications.
 
   - name: Subscriptions
     description: |
       A subscription is a subscription to notifications.
+      
+      You have a subscription for each browser that receives your push notifications.
+      
+      A subscription includes the endpoint (URL) and keys used to send the notifications
+      to a browser. It can also include optional data, like a user ID (uid) and 
+      tags that can be used to find that subscription and send notifications to
+      that subscriber.
       
       By sending requests to the Subscriptions endpoint, you can
       create, read, update or delete subscriptions.
@@ -53,12 +72,24 @@ tags:
     description: |
       A project is a project on Pushpad.
       
+      A project includes notifications, subscriptions, settings and stats.
+      
+      Usually you have a project for each website that sends notifications.
+      A domain can also use multiple projects,
+      but they must be associated to the same sender.
+      
+      You can add multiple members with limited access to a project.
+      
       By sending requests to the Projects endpoint, you can
       create, read, update or delete projects.
 
   - name: Senders
     description: |
-      A sender is the owner of the subscriptions and signer of the notifications.
+      A sender is the owner of the subscriptions and the signer of the notifications.
+      
+      It includes the VAPID keys used for Web Push.
+      
+      Each sender can have one or more projects.
       
       By sending requests to the Senders endpoint, you can
       create, read, update or delete senders.
