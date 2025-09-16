@@ -22,17 +22,19 @@ servers:
     
 components:
   securitySchemes:
-    TokenAuth:
+    BearerAuth:
       type: http
-      scheme: Token
+      scheme: bearer
       description: |
-        Authentication with access token (API key).
+        Authenticate using an HTTP Bearer token.
+        
+        Go to Pushpad, Account settings, Access tokens
+        to create your API key.
 
-        Example header:
-        `Authorization: Token token="YOUR_ACCESS_TOKEN"`
+        Example header: `Authorization: Bearer <token>`
 
 security:
-  - TokenAuth: []
+  - BearerAuth: []
 
 tags:
   - name: Notifications
