@@ -1,3 +1,2 @@
 description: |
-  A generic error that indicates an issue in the client request.
-  For example, a required param is missing or the request body is malformed and cannot be parsed.
+  The request is malformed, invalid, or contains incorrect syntax.

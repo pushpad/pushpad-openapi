@@ -1,3 +1,2 @@
 description: |
-  An authentication failure.
-  For example, the token is not present in the request headers or it is invalid.
+  Authentication error, the token is missing or invalid.
