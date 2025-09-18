@@ -1,6 +1,7 @@
 # Pushpad OpenAPI Specification
 
 ![Build Status](https://github.com/pushpad/pushpad-openapi/workflows/CI/badge.svg)
+[![Download OpenAPI Spec](https://img.shields.io/badge/Download-OpenAPI%20Spec-blue)](https://pushpad.xyz/openapi.yaml)
 
 The OpenAPI specification for Web Push Notifications using [Pushpad](https://pushpad.xyz).
 
