@@ -18,6 +18,14 @@ The Pushpad OpenAPI Specification is currently in **Early Availability**. The sp
 
 While this specification should be considered experimental, the Pushpad API is stable and production-ready: please see [the official documentation](https://pushpad.xyz/docs/rest_api) or use [the libraries](https://pushpad.xyz/docs/libraries_and_plugins).
 
+## Specification
+
+This repository contains the source files used to compile the specification.
+
+A bundled version containing the entire specification is published here:
+
+https://pushpad.xyz/openapi.yaml
+
 ## Setup
 
 Download this repository:
@@ -32,7 +40,7 @@ Then install the dependencies ([Redocly](https://redocly.com)):
 make setup
 ```
 
-## Usage
+## Development
 
 To preview the documentation locally, run:
 
