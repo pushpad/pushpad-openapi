@@ -27,39 +27,37 @@ responses:
     content:
       application/json:
         schema:
-          oneOf:
-            - type: object
-              description: Notification response.
-              properties:
-                id:
-                  type: integer
-                  example: 197123
-                  description: The notification id.
-                scheduled:
-                  type: integer
-                  example: 5
-                  description: |
-                    The number of devices to which the notification will be delivered.
-                    It can differ from the size of uids since some users may have enabled notifications on more than one device.
-                uids:
-                  type: array
-                  items:
-                    type: string
-                  example: ["uid0", "uid1", "uidN"]
-                  description: |
-                    The users that will be actually reached by the notification (i.e. they are subscribed to push notifications).
-            - type: object
-              description: Scheduled notification response.
-              properties:
-                id:
-                  type: integer
-                  example: 197123
-                  description: The notification id.
-                send_at:
-                  type: string
-                  format: date-time
-                  example: "2016-07-06T10:09:00.000Z"
-                  description: The time when the notification will be sent.
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 123456789
+              description: |
+                The notification id.
+            scheduled:
+              type: integer
+              example: 9876
+              description: |
+                The number of devices the notification will be delivered to.
+                Note that this value may differ from the number of user IDs (uids) in the request,
+                for example when some users are not subscribed or are subscribed with multiple devices.
+                This field is not available for scheduled notifications.
+            uids:
+              type: array
+              items:
+                type: string
+              example: ["uid0", "uid1", "uidN"]
+              description: |
+                This field is included in the response only if you specify some user IDs (uids) in the request,
+                and it indicates which of those users are subscribed to notifications.
+                This field is not available for scheduled notifications.
+            send_at:
+              type: string
+              format: date-time
+              example: "2016-07-06T10:09:00.000Z"
+              description: |
+                The time when the notification will be sent.
+                Available only for scheduled notifications.
 
   '401':
     $ref: '../../shared/responses/unauthorized.yml'
