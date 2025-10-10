@@ -9,6 +9,13 @@ properties:
       A unique identifier for each subscription.
       This is automatically generated upon subscription creation.
 
+  project_id:
+    type: integer
+    readOnly: true
+    example: 123
+    description: |
+      The ID of the project the subscription belongs to.
+
   endpoint:
     type: string
     format: uri
