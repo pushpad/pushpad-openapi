@@ -36,7 +36,7 @@ properties:
       The url the user is redirected to when clicks the push notification.
 
   icon_url:
-    type: string
+    type: [string, "null"]
     format: uri
     example: "https://example.com/assets/icon.png"
     description: |
@@ -44,7 +44,7 @@ properties:
       Suggested size: 192x192px.
 
   badge_url:
-    type: string
+    type: [string, "null"]
     format: uri
     example: "https://example.com/assets/badge.png"
     description: |
@@ -53,7 +53,7 @@ properties:
       Suggested size: 96x96px.
 
   image_url:
-    type: string
+    type: [string, "null"]
     format: uri
     example: "https://example.com/assets/image.png"
     description: |
@@ -88,7 +88,7 @@ properties:
       that must wake up devices that are sleeping.
 
   custom_data:
-    type: string
+    type: [string, "null"]
     example: ""
     description: |
       An arbitrary string that represents some metadata that you want to attach to the notification.
@@ -105,13 +105,13 @@ properties:
           description: |
             The label to display on the action button.
         target_url:
-          type: string
+          type: [string, "null"]
           format: uri
           example: "https://example.com/button-link"
           description: |
             The page that opens up when the user clicks the button.
         icon:
-          type: string
+          type: [string, "null"]
           format: uri
           example: "https://example.com/assets/button-icon.png"
           description: |
@@ -138,7 +138,7 @@ properties:
       You can use this feature to highlight some notifications, for example those that have been sent manually.
 
   send_at:
-    type: string
+    type: [string, "null"]
     format: date-time
     example: "2016-07-06T10:09:00.000Z"
     description: |
@@ -156,7 +156,7 @@ properties:
       You can learn more in the Monitoring section of the documentation.
 
   uids:
-    type: array
+    type: [array, "null"]
     items:
       type: string
     example: ["uid0", "uid1", "uidN"]
@@ -166,7 +166,7 @@ properties:
       When the field is an empty array, the notification will not be sent to anyone.
 
   tags:
-    type: array
+    type: [array, "null"]
     items:
       type: string
     example: ["tag1", 'tagA && !tagB']

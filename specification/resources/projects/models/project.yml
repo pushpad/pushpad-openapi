@@ -30,7 +30,7 @@ properties:
       This is also the default URL for notifications.
 
   icon_url:
-    type: string
+    type: [string, "null"]
     format: uri
     example: "https://example.com/icon.png"
     description: |
@@ -38,7 +38,7 @@ properties:
       Suggested size >= 192x192px, squared.
 
   badge_url:
-    type: string
+    type: [string, "null"]
     format: uri
     example: "https://example.com/badge.png"
     description: |
